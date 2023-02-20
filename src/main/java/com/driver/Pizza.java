@@ -2,21 +2,25 @@ package com.driver;
 
 public class Pizza {
 
+    int topping;
     private int price;
-    private Boolean isVeg;
+    private boolean isVeg;
         boolean isCheeseAdded;
     private String bill;
     boolean isToppingsAdded;
     boolean isTakeaway;
     boolean isBilGenerated;
 
-    public Pizza(Boolean isVeg){
+    public Pizza(boolean isVeg){
         this.isVeg = isVeg;
+        bill = "";
         if(isVeg) {
+            topping = 70;
             price = 300;
             bill += "Base Price Of The Pizza: 300" + "\n";
         }
         else{
+            topping = 120;
             price = 400;
             bill += "Base Price Of The Pizza: 400" + "\n";
         }
@@ -39,12 +43,7 @@ public class Pizza {
         // your code goes here
         if(!isToppingsAdded){
             isToppingsAdded = true;
-             if(isVeg){
-                 price += 70;
-             }
-             else{
-                 price += 120;
-             }
+             price += topping;
         }
     }
 
